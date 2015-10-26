@@ -10,7 +10,7 @@ chai.use(chaiImmutable);
 
 import { shouldHaveObjectEquality } from '../support/matchers';
 import { signals } from '../support/sampleData';
-const { alice } = signals;
+const { alice: aSigs } = signals;
 
 import * as actions from '../../app/actions/signalActions';
 
@@ -19,10 +19,11 @@ describe('signalActions', () => {
   describe('#addSignal', () => {
 
     it('returns an action that adds a signal', () => {
-      const { type, signal } = actions.addSignal(alice[0]);
+
+      const { type, payload } = actions.addSignal(aSigs[0]);
 
       type.should.equal(actions.ADD_SIGNAL);
-      signal.should.equal(alice[0]);
+      payload.should.equal(aSigs[0]);
     });
   });
 });

@@ -23,7 +23,7 @@ describe('signal reducers', () => {
 
         signals(List(), {
           type: ADD_SIGNAL,
-          signal: aSigs[0]
+          payload: aSigs[0]
         }).should.equal(List.of(aSigs[0]));
 
       });
@@ -35,7 +35,7 @@ describe('signal reducers', () => {
 
         signals(List.of(aSigs[0]), {
           type: ADD_SIGNAL,
-          signal: aSigs[1]
+          payload: aSigs[1]
         }).should.equal(List.of(aSigs[0], aSigs[1]));
 
       });
