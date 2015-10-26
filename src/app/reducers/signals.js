@@ -1,11 +1,9 @@
 import { List } from 'immutable';
+import { createReducer } from 'redux-immutablejs';
 import { ADD_SIGNAL } from '../actions/signalActions';
 
-export function signals(state = List(), action) {
-  switch(action.type){
-  case ADD_SIGNAL:
-    return state.push(action.signal);
-  default:
-    return state;
-  }
-}
+const initState = List();
+
+export const signals = createReducer(initState, {
+  [ADD_SIGNAL]: (state, action) => state.push(action.payload)
+});
